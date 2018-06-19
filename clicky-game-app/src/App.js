@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TeamCard from './components/TeamCard';
 import Wrapper from './components/Wrapper';
 import Title from './components/Title';
-import teams from './teams.json'; 
+import teams from './teams.json';
 import './App.css';
 
 class App extends Component {
@@ -20,11 +20,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Don't Drop The Rock</h1>
-        </header>
-      </div>
+      <Wrapper>
+        <Title>Don't Drop the Rock!</Title>
+        {this.state.teams.map(team => (
+          <TeamCard
+            id={team.id}
+            key={team.id}
+            name={team.name}
+            image={team.image}
+          />
+        ))}
+      </Wrapper>
     );
   }
 }
